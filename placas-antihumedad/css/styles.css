@@ -1,0 +1,293 @@
+/* 1. CONFIGURACIÓN GLOBAL Y VARIABLES */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primario: #0a2540;
+    --acento: #0071e3;   
+    --gris-fondo: #f5f5f7;
+    --texto: #1d1d1f;
+    --blanco: #ffffff;
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-cuerpo: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--primario);
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 2. NAVEGACIÓN */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--primario);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--acento);
+}
+
+/* 3. SECCIÓN HERO */
+#inicio {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(10, 37, 64, 0.5), rgba(10, 37, 64, 0.5)), 
+                url('../assets/img/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--blanco);
+    text-align: center;
+}
+
+#inicio h1 {
+    color: var(--blanco);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    max-width: 800px;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--acento);
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
+}
+
+/* 4. GRIDS Y TARJETAS */
+.grid-beneficios, .grid-garantia, .grid-modelos, .grid-testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+.tarjeta, .item-garantia, .modelo-card, .testimonio-card {
+    background: var(--blanco);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease;
+}
+
+.modelo-card { padding: 0; overflow: hidden; }
+
+.modelo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--acento);
+}
+
+.modelo-info { padding: 20px; text-align: left; }
+
+.modelo-card:hover, .item-garantia:hover {
+    transform: translateY(-10px);
+}
+
+/* 5. SECCIÓN AISLAMIENTO */
+#aislamiento-premium {
+    background-color: var(--gris-fondo);
+}
+
+.contenedor-aislamiento {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+}
+
+.contenido-texto, .imagen-tecnica { flex: 1; }
+
+.imagen-tecnica img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.badge {
+    background: var(--acento);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* 6. CONTACTO Y WHATSAPP */
+#contacto {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+#contacto h2 { color: var(--blanco); }
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-whatsapp:hover { transform: scale(1.05); }
+
+/* 7. RESPONSIVIDAD */
+@media (max-width: 768px) {
+    .contenedor-aislamiento { flex-direction: column; text-align: center; }
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.7rem; }
+    #inicio h1 { font-size: 2.2rem; }
+}
+
+/* 8. FOOTER */
+footer {
+    background: var(--primario);
+    color: white;
+    padding: 60px 20px 20px;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer-copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+}
+
+/* Ocultar en el footer para que no se superponga (Opcional) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Estados para la animación Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto cuando el Header se achica al scrollear */
+.header-scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilo para el enlace activo del menú */
+.active-link {
+    color: var(--acento) !important;
+    font-weight: 700 !important;
+}
